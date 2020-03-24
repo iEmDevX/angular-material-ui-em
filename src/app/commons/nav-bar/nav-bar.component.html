@@ -10,11 +10,12 @@
     <button mat-icon-button>
       <span class="lnr lnr-cog" style="font-size: 120%;"></span>
     </button>
-    <button mat-icon-button>
+    <button mat-icon-button (click)="openDialog()">
       <span class="lnr lnr-user" style="font-size: 120%;"></span>
     </button>
     <button mat-icon-button>
-      <span class="lnr lnr-cart" style="font-size: 130%;"></span>
+      <span class="lnr lnr-cart" style="font-size: 130%;" matBadge="15" matBadgeColor="warn"
+        matBadgePosition="above after" matBadgeSize="small"></span>
     </button>
 
   </mat-toolbar>

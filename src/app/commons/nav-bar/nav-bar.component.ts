@@ -1,5 +1,9 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAuthenComponent } from 'src/app/components/dialog-authen/dialog-authen.component';
+import { CallDialogAhten } from 'src/app/components/dialog-authen/call-dialog-authen';
+import { ScreenConfig } from 'src/app/config/screen-config';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,34 +14,16 @@ export class NavBarComponent implements OnDestroy {
 
   mobileQuery: MediaQueryList;
 
-  // listMenu: ListMenu[] = [
-  //   { icon: 'test1', text: 'test' },
-  //   { icon: 'test2', text: 'test' },
-  //   { icon: 'test3', text: 'test' },
-  //   { icon: 'test4', text: 'test' },
-  //   { icon: 'test5', text: 'test' },
-  //   { icon: 'test6', text: 'test' },
-  //   { icon: 'test7', text: 'test' },
-  //   { icon: 'test8', text: 'test' },
-  //   { icon: 'test9', text: 'test' },
-  //   { icon: 'test6', text: 'test' },
-  //   { icon: 'test7', text: 'test' },
-  //   { icon: 'test8', text: 'test' },
-  //   { icon: 'test9', text: 'test' },
-  //   { icon: 'test6', text: 'test' },
-  //   { icon: 'test7', text: 'test' },
-  //   { icon: 'test8', text: 'test' },
-  //   { icon: 'test9', text: 'test' },
-  // ];
-
   showFiller = false;
   private mobileQueryListener: () => void;
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
+    public dialog: MatDialog,
+    private callDAL: CallDialogAhten,
   ) {
-    this.mobileQuery = this.media.matchMedia('(max-width: 800px)');
+    this.mobileQuery = this.media.matchMedia(`(max-width: ${ScreenConfig.widthMobile}px)`);
     this.mobileQueryListener = () => this.changeDetectorRef.detectChanges();
     // tslint:disable: deprecation
     this.mobileQuery.addListener(this.mobileQueryListener);
@@ -46,5 +32,10 @@ export class NavBarComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this.mobileQueryListener);
   }
+
+  openDialog(): void {
+    this.callDAL.openDialog();
+  }
+
 
 }

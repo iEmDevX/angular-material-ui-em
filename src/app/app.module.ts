@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxLoadingModule } from 'ngx-loading';
 import { Globals } from './commons/globals';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CallDialogAhten } from './components/dialog-authen/call-dialog-authen';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   providers: [
     AjaxService,
     Globals,
+    CallDialogAhten,
   ],
   bootstrap: [AppComponent]
 })
