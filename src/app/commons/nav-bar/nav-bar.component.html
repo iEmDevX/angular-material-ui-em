@@ -1,0 +1,114 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <span class="lnr lnr-menu" style="font-size: 180%;"></span>
+    </button>
+    <h1 class="example-app-name" [hidden]="mobileQuery.matches" style="padding-right: 10px;">THIS IS EMEM TEMPLATE</h1>
+    <span class="lnr lnr-diamond" style="font-size: 200%;"></span>
+    <span class="example-fill-remaining-space"></span>
+
+    <button mat-icon-button>
+      <span class="lnr lnr-cog" style="font-size: 120%;"></span>
+    </button>
+    <button mat-icon-button>
+      <span class="lnr lnr-user" style="font-size: 120%;"></span>
+    </button>
+    <button mat-icon-button>
+      <span class="lnr lnr-cart" style="font-size: 130%;"></span>
+    </button>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56" [opened]="!mobileQuery.matches">
+
+      <!-- Headder SideBar -->
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <mat-list>
+            <mat-list-item>
+              <span matListIcon class="lnr lnr-diamond" style="font-size: 180%;"></span>
+              <h2 matLine> THIS IS EMEM TEMPLATE </h2>
+            </mat-list-item>
+          </mat-list>
+        </mat-toolbar-row>
+      </mat-toolbar>
+
+      <!-- List SideBar -->
+
+      <mat-nav-list>
+        <h1 matSubheader style="font-size: 17px;margin-bottom: -10px;"> MY WORK </h1>
+        <mat-list>
+          <mat-list-item [routerLink]="['/']" routerLinkActive="list-item-active">
+            <span matListIcon class="lnr lnr-code"></span>
+            <h3 matLine> WORK1 </h3>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListIcon class="lnr lnr-bug"></span>
+            <h3 matLine> WORK2 </h3>
+          </mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+
+      <mat-nav-list>
+        <h2 matSubheader style="font-size: 17px;margin-bottom: -10px;"> MY LIST </h2>
+        <mat-list>
+          <mat-list-item>
+            <span matListIcon class="lnr lnr-graduation-hat"></span>
+            <h3 matLine> LIST1 </h3>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListIcon class="lnr lnr-book"></span>
+            <h3 matLine> LIST2 </h3>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListIcon class="lnr lnr-shirt"></span>
+            <h3 matLine> LIST3 </h3>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListIcon class="lnr lnr-cart"></span>
+            <h3 matLine> LIST4 </h3>
+          </mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+
+      <mat-nav-list>
+        <h2 matSubheader style="font-size: 17px;margin-bottom: -10px;"> MY DASHBOARD </h2>
+        <mat-list>
+          <mat-list-item>
+            <span matListIcon class="lnr lnr-coffee-cup"></span>
+            <h3 matLine> DASHBOARD1 </h3>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListIcon class="lnr lnr-mustache"></span>
+            <h3 matLine> DASHBOARD2 </h3>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListIcon class="lnr lnr-earth"></span>
+            <h3 matLine> DASHBOARD3 </h3>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListIcon class="lnr lnr-exit-up"></span>
+            <h3 matLine> DASHBOARD4 </h3>
+          </mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+    <!-- Content Sidebar -->
+    <mat-sidenav-content>
+      <!-- <mat-card [style.margin.pc]="mobileQuery.matches ? 0.5 : 0.8">
+        <mat-card-title>This test Card md-card</mat-card-title>
+        <mat-card-subtitle>12/12/2020</mat-card-subtitle>
+        <mat-card-content>content</mat-card-content>
+      </mat-card> -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>
